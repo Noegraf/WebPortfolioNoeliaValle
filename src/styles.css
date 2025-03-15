@@ -1,0 +1,75 @@
+/* --- Tipografía y Reset --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  --color-bg-light: #f9f9f9;
+  --color-bg-dark: #1a1a1a;
+  --color-text-light: #333;
+  --color-text-dark: #f9f9f9;
+  --color-primary: #0077ff;
+  --transition: 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
+  transition: var(--transition);
+}
+
+/* --- Modo Oscuro --- */
+body.dark-mode {
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* --- Layout Principal --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.dark-mode .navbar {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Botones de Idioma y Modo Oscuro --- */
+.toggle-buttons {
+  margin-left: auto;
+}
+
+button {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+button:hover {
+  opacity: 0.8;
+}

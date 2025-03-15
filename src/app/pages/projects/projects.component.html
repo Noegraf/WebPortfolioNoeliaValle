@@ -1,0 +1,35 @@
+<section class="projects-wrapper">
+    <h1 class="section-title">Proyectos destacados</h1>
+  
+    <!-- Botones para scroll horizontal -->
+    <div class="slider-controls">
+      <button (click)="scrollLeft()">&#10094;</button>
+      <button (click)="scrollRight()">&#10095;</button>
+    </div>
+  
+    <!-- Contenedor de los proyectos en slider -->
+    <div class="projects-container" #slider>
+      <div class="project-card" *ngFor="let project of projects">
+        <img [src]="project.image" [alt]="project.title" />
+        <h3>{{ project.title }}</h3>
+        <button class="details-btn" (click)="openModal(project)">+</button>
+      </div>
+    </div>
+  
+    <!-- Modal de Detalles -->
+    <div class="modal-backdrop" *ngIf="selectedProject" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeModal()">✕</button>
+        <h2>{{ selectedProject.title }}</h2>
+        <p>{{ selectedProject.description }}</p>
+        <!-- Embed de Figma -->
+        <iframe
+          width="100%"
+          height="500"
+          [src]="selectedProject.figma | safe"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
